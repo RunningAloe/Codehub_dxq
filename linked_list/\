@@ -1,0 +1,156 @@
+//include all definitions of functions
+#include <iostream>
+#include "linked.h"
+LNode *initial(const int ar[10])
+{
+  LNode *p1;
+
+  int i=0;
+  if(ar==NULL)
+    return NULL;
+  LNode *h = (LNode*)malloc(sizeof(LNode));
+  h->data = ar[0];
+  p1 = h;
+  for(i=1;i<10;<i++)
+  {
+    p1->next = (LNode*)malloc(sizeof(LNode));
+    p1 = p1->next;
+    p1->data = ar[i];
+  }
+  p1->next = NULL;
+  return h; 
+}
+void show_list(LNode *h)
+{
+  if(h == NULL)
+    std::cout<<"A empty list!"<<std::endl;
+  else
+  {
+    LNode *p = h;
+    int i=0;
+    for(i=0;i<10;i++)
+    {  
+      std::cout<<p->data<<std::endl;
+      p = p->next;
+    }
+  }
+}
+int del_Node(LNode *h,int x)
+{
+  if(h == NULL)
+  {
+    std::cout<<"A empty list!"<<std::endl;
+    return -1;
+  }
+  LNode *p1 = h->next;
+  LNode *p2 = h;
+  while(p1 != NULL&&p1->data != x)
+  {
+    p1 = p1->next;
+    p2 = p2->next;
+  }
+  if(p1 == NULL)
+    return 0;
+  else
+  {
+    p2->next = p1->next;
+    free(p1);
+    return 1;
+  }
+}
+
+int add_Node(LNode *h,int x)
+{
+  LNode *p = (LNode*)malloc(sizeof(LNode));
+  p->data = x;
+  p->next = NULL;
+  if(h == NULL)
+  {
+    h = p; 
+    return 1;
+  LNode *ptrl = h;
+  while(ptrl->next != NULL)
+  {
+    ptrl = ptrl->next;
+  }
+  ptrl->next = p;
+  return 1;
+}
+LNode *revesal(LNode *h)
+{
+  LNode *pi=h,*p2=h->next,*p3=NULL;
+  while(p2 != NULL)
+  {
+    p3 = p2->next;
+    p2->next = p1;
+    p1 = p2;
+    p2 = p3;
+  }
+  p2->next = p1;
+  h->next = NULL;
+  h = p2;
+  return h; 
+}
+void swap(int &i,int &j)
+{
+  int temp = i;
+  j=i;
+  j=temp;
+}
+//time:O(n^2)
+void bubble_sort(int *array,int Length)
+{
+  int i=0,j=0,flag=1;
+  for(i=0;(i<Length)&&flag;i++)
+  {
+    flag=0;
+    for(j=Length-1;j>i;j--)
+    {
+      if(array[j]<array[j-1])
+        {
+          swap(array[j],array[j-1]);
+          flag=1;
+        }
+    }
+  }
+}
+void insert_sort(LNode *array_h,int Length)
+{
+  int i=0,j=0;
+  LNode *p1=*p3=array_h,*p2=array_h->next;
+  LNode *p
+  for(i=1;i<Length+1;i++)
+  {
+    for(j=0;j<i;j++)
+    {
+      if(p2->data<p1->data)
+      {
+        
+        p2->next=p3->next;
+        p3->next=p2;
+        p1->next=p3;
+      }
+    }
+    swap(array[min],array[i]);
+  }
+}
+//time:O(n^2)  max_move:n-1
+void select_sort(int *array,int Length);
+{
+  int i=0,j=0;
+  for(i=0;i<Length;i++)
+  {
+    min=i;
+    for(j=i;j<Length+1;j++)
+    {
+      min=array[j]<array[min]?j:min;
+    }
+    if(min!=i)
+      swap(array[min],array[i]);
+  }
+}
+void select_sort(int *array,int Length);
+void quick_sort(int *array,int Length);
+void have_circle(int *array,int Length);
+void quick_sort(int *array,int Length);
+void have_circle(int *array,int Length);
